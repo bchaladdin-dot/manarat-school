@@ -21,6 +21,19 @@
       font-size: 22px;
       font-weight: bold;
       box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    header img {
+      height: 50px;
+      width: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+      background: white;
+      padding: 5px;
     }
     .container {
       margin: 15px auto;
@@ -95,7 +108,8 @@
 
     /* تحسينات للهاتف */
     @media (max-width: 600px) {
-      header { font-size: 20px; padding: 18px 8px; }
+      header { font-size: 20px; padding: 15px 8px; }
+      header img { height: 40px; width: 40px; }
       .card h2 { font-size: 18px; }
       .year-btn, .back-btn { font-size: 15px; padding: 12px; }
       table { font-size: 13px; }
@@ -103,7 +117,10 @@
   </style>
 </head>
 <body>
-  <header>مدرسة منارة العلم</header>
+  <header>
+    <img src="logo.png" alt="شعار المدرسة">
+    <span>مدرسة منارة العلم</span>
+  </header>
 
   <div class="container">
     <!-- الأطوار -->
@@ -190,4 +207,3 @@
   </script>
 </body>
 </html>
-
