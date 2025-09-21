@@ -5,6 +5,39 @@
   <title>مدرسة منارة العلم</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
+	header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+            text-align: center;
+            background: transparent; /* بدون خلفية */
+        }
+        
+        header img {
+            max-width: 150px; /* حجم مناسب للوغو */
+            margin-bottom: 20px; /* مسافة بين اللوغو والنص */
+            display: block; /* لإزالة المسافات الإضافية */
+        }
+        
+        header span {
+            display: block;
+            margin: 5px 0;
+            color: #333;
+        }
+        
+        header span:first-of-type {
+            font-size: 28px;
+            font-weight: bold;
+            color: #1a5276; /* لون مميز لاسم المدرسة */
+        }
+        
+        header span:last-of-type {
+            font-size: 20px;
+            color: #34495e;
+            font-weight: 500;
+        }
     body {
       font-family: "Cairo", sans-serif;
       margin: 0;
@@ -35,29 +68,6 @@
       background: white;
       padding: 5px;
     }
-    header {
-  background: linear-gradient(135deg, #2c3e50, #3498db);
-  color: white;
-  padding: 20px 10px;
-  text-align: center;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-}
-
-.school-logo {
-  height: 80px;
-  width: auto;
-  display: block;
-  margin: 0 auto 10px auto;
-  object-fit: contain;   /* يخلي الصورة ما تتمددش وتبقى طبيعية */
-  background: transparent; /* ما يزيدش خلفية */
-}
-
-.school-title {
-  font-size: 22px;
-  font-weight: bold;
-  display: block;
-}
-
     .container {
       margin: 15px auto;
       max-width: 900px;
@@ -141,9 +151,11 @@
 </head>
 <body>
   <header>
-  <img src="Logo.png" alt="شعار المدرسة" class="school-logo">
-  <span class="school-title">🏫 مدرسة منارة العلم</span>
+    <img src="Logo.png" alt="شعار المدرسة">
+    <span>مدرسة منارة العلم</span>
+    <span>قائمة الأساتذة الالكتورنية</span>
   </header>
+
   <div class="container">
     <!-- الأطوار -->
     <div id="levels" class="cards">
@@ -179,10 +191,6 @@
 
     const subjectsData = {
       "السنة الأولى ابتدائي": [
-        { subject: "الرياضيات", teacher: "أ. أحمد", time: "الأحد 10:00" },
-        { subject: "اللغة العربية", teacher: "أ. خديجة", time: "الإثنين 09:00" }
-      ],
-      "السنة الخامسة ابتدائي": [
         { subject: "الرياضيات", teacher: "أ. أحمد", time: "الأحد 10:00" },
         { subject: "اللغة العربية", teacher: "أ. خديجة", time: "الإثنين 09:00" }
       ],
