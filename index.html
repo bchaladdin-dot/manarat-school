@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>مدرسة منارة العلم</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
       font-family: "Cairo", sans-serif;
@@ -11,58 +12,60 @@
       background: #f5f6fa;
       text-align: center;
       color: #2c3e50;
-      font-size: 18px;
-      font-weight: 500;
+      line-height: 1.6;
     }
     header {
       background: linear-gradient(135deg, #2c3e50, #3498db);
       color: white;
-      padding: 30px 10px;
-      font-size: 28px;
+      padding: 20px 10px;
+      font-size: 22px;
       font-weight: bold;
       box-shadow: 0 4px 10px rgba(0,0,0,0.3);
     }
     .container {
-      margin: 30px auto;
-      max-width: 800px;
+      margin: 15px auto;
+      max-width: 900px;
+      padding: 0 15px;
     }
     .cards {
       display: flex;
-      flex-direction: column;
-      gap: 20px;
+      flex-wrap: wrap;
+      gap: 15px;
+      justify-content: center;
     }
     .card {
+      flex: 1 1 250px;
+      min-width: 220px;
       background: white;
-      border-radius: 15px;
-      padding: 25px;
+      border-radius: 12px;
+      padding: 20px;
       cursor: pointer;
       transition: transform 0.3s, box-shadow 0.3s;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
     .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      transform: translateY(-4px);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.15);
     }
     .card h2 {
       margin: 0;
-      font-size: 22px;
+      font-size: 20px;
       color: #2c3e50;
     }
-    .hidden {
-      display: none;
-    }
+    .hidden { display: none; }
     .years, .subjects {
       margin-top: 20px;
     }
     .year-btn, .back-btn {
-      display: inline-block;
-      margin: 10px;
-      padding: 12px 25px;
+      display: block;
+      width: 100%;
+      margin: 8px 0;
+      padding: 14px;
       border: 1px solid #3498db;
       border-radius: 10px;
       background: white;
-      font: inherit;      /* يرث الخط والحجم من body */
-      color: inherit;     /* يرث اللون من النص العام */
+      font: inherit;
+      font-size: 16px;
       cursor: pointer;
       transition: all 0.3s;
     }
@@ -75,9 +78,10 @@
       border-collapse: collapse;
       margin-top: 15px;
       background: white;
-      border-radius: 12px;
+      border-radius: 10px;
       overflow: hidden;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      font-size: 14px;
     }
     th, td {
       padding: 12px;
@@ -86,6 +90,15 @@
     th {
       background: #3498db;
       color: white;
+      font-size: 15px;
+    }
+
+    /* تحسينات للهاتف */
+    @media (max-width: 600px) {
+      header { font-size: 20px; padding: 18px 8px; }
+      .card h2 { font-size: 18px; }
+      .year-btn, .back-btn { font-size: 15px; padding: 12px; }
+      table { font-size: 13px; }
     }
   </style>
 </head>
@@ -177,4 +190,3 @@
   </script>
 </body>
 </html>
-
