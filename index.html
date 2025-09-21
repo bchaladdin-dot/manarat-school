@@ -2,18 +2,17 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <title>مدرسة منارة العلم</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>مدرسة منارة العلم</title>
   <style>
     body {
-      font-family: "Cairo", sans-serif;
+      font-family: "Tahoma", sans-serif;
       margin: 0;
       padding: 0;
       background: #f5f6fa;
-      text-align: center;
-      color: #2c3e50;
-      line-height: 1.6;
+      color: #333;
     }
+
     header {
       background: linear-gradient(135deg, #2c3e50, #3498db);
       color: white;
@@ -22,188 +21,209 @@
       font-weight: bold;
       box-shadow: 0 4px 10px rgba(0,0,0,0.3);
       display: flex;
+      flex-direction: column; /* الشعار فوق والاسم تحته */
       align-items: center;
       justify-content: center;
-      gap: 12px;
-      flex-wrap: wrap;
+      gap: 10px;
     }
+
     header img {
-      height: 50px;
-      width: 50px;
+      height: 70px;
+      width: 70px;
       border-radius: 50%;
       object-fit: cover;
       background: white;
       padding: 5px;
     }
-    .container {
-      margin: 15px auto;
-      max-width: 900px;
-      padding: 0 15px;
-    }
-    .cards {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 15px;
-      justify-content: center;
-    }
-    .card {
-      flex: 1 1 250px;
-      min-width: 220px;
-      background: white;
-      border-radius: 12px;
-      padding: 20px;
-      cursor: pointer;
-      transition: transform 0.3s, box-shadow 0.3s;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
-    .card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 18px rgba(0,0,0,0.15);
-    }
-    .card h2 {
-      margin: 0;
-      font-size: 20px;
-      color: #2c3e50;
-    }
-    .hidden { display: none; }
-    .years, .subjects {
-      margin-top: 20px;
-    }
-    .year-btn, .back-btn {
-      display: block;
-      width: 100%;
-      margin: 8px 0;
-      padding: 14px;
-      border: 1px solid #3498db;
-      border-radius: 10px;
-      background: white;
-      font: inherit;
-      font-size: 16px;
-      cursor: pointer;
-      transition: all 0.3s;
-    }
-    .year-btn:hover, .back-btn:hover {
-      background: #3498db;
-      color: white;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 15px;
-      background: white;
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      font-size: 14px;
-    }
-    th, td {
-      padding: 12px;
-      border-bottom: 1px solid #eee;
-    }
-    th {
-      background: #3498db;
-      color: white;
-      font-size: 15px;
+
+    .school-name {
+      font-size: 22px;
     }
 
-    /* تحسينات للهاتف */
-    @media (max-width: 600px) {
-      header { font-size: 20px; padding: 15px 8px; }
-      header img { height: 40px; width: 40px; }
-      .card h2 { font-size: 18px; }
-      .year-btn, .back-btn { font-size: 15px; padding: 12px; }
-      table { font-size: 13px; }
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .section {
+      margin: 20px 0;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .btn {
+      display: inline-block;
+      margin: 10px;
+      padding: 12px 20px;
+      background: #3498db;
+      color: white;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+      text-decoration: none;
+    }
+
+    .btn:hover {
+      background: #2980b9;
+    }
+
+    .back-btn {
+      background: #e74c3c;
+    }
+
+    .card {
+      background: white;
+      border-radius: 10px;
+      padding: 15px;
+      margin: 10px auto;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      max-width: 500px;
+      text-align: right;
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      color: #2c3e50;
+    }
+
+    .card p {
+      margin: 5px 0;
     }
   </style>
 </head>
 <body>
+
   <header>
-    <img src="logo.png" alt="شعار المدرسة">
-    <span>مدرسة منارة العلم</span>
+    <div class="logo-container">
+      <img src="Logo.png" alt="شعار المدرسة">
+    </div>
+    <div class="school-name">
+      🏫 مدرسة منارة العلم
+    </div>
   </header>
 
   <div class="container">
-    <!-- الأطوار -->
-    <div id="levels" class="cards">
-      <div class="card" onclick="showYears('primary')">
-        <h2>📚 الابتدائي</h2>
-      </div>
-      <div class="card" onclick="showYears('middle')">
-        <h2>🧮 المتوسط</h2>
-      </div>
-      <div class="card" onclick="showYears('secondary')">
-        <h2>🎓 الثانوي</h2>
-      </div>
+
+    <!-- الصفحة الرئيسية -->
+    <div id="mainPage" class="section">
+      <h2>اختر الطور</h2>
+      <button class="btn" onclick="showSection('primary')">الطور الابتدائي</button>
+      <button class="btn" onclick="showSection('middle')">الطور المتوسط</button>
+      <button class="btn" onclick="showSection('secondary')">الطور الثانوي</button>
     </div>
 
-    <!-- السنوات -->
-    <div id="years" class="hidden"></div>
-
-    <!-- المواد -->
-    <div id="subjects" class="hidden"></div>
-
-    <!-- زر العودة -->
-    <div id="back" class="hidden">
-      <button class="back-btn" onclick="goHome()">رجوع للصفحة الرئيسية</button>
+    <!-- الابتدائي -->
+    <div id="primary" class="section hidden">
+      <h2>الطور الابتدائي</h2>
+      <button class="btn" onclick="showYears('primaryYears')">عرض السنوات</button>
+      <button class="btn back-btn" onclick="goBack()">رجوع</button>
     </div>
+    <div id="primaryYears" class="section hidden">
+      <h2>سنوات الابتدائي</h2>
+      <button class="btn" onclick="showTeachers('p1')">السنة الأولى</button>
+      <button class="btn" onclick="showTeachers('p2')">السنة الثانية</button>
+      <button class="btn" onclick="showTeachers('p3')">السنة الثالثة</button>
+      <button class="btn" onclick="showTeachers('p4')">السنة الرابعة</button>
+      <button class="btn" onclick="showTeachers('p5')">السنة الخامسة</button>
+      <button class="btn back-btn" onclick="goBack()">رجوع</button>
+    </div>
+
+    <!-- المتوسط -->
+    <div id="middle" class="section hidden">
+      <h2>الطور المتوسط</h2>
+      <button class="btn" onclick="showYears('middleYears')">عرض السنوات</button>
+      <button class="btn back-btn" onclick="goBack()">رجوع</button>
+    </div>
+    <div id="middleYears" class="section hidden">
+      <h2>سنوات المتوسط</h2>
+      <button class="btn" onclick="showTeachers('m1')">السنة الأولى</button>
+      <button class="btn" onclick="showTeachers('m2')">السنة الثانية</button>
+      <button class="btn" onclick="showTeachers('m3')">السنة الثالثة</button>
+      <button class="btn" onclick="showTeachers('m4')">السنة الرابعة</button>
+      <button class="btn back-btn" onclick="goBack()">رجوع</button>
+    </div>
+
+    <!-- الثانوي -->
+    <div id="secondary" class="section hidden">
+      <h2>الطور الثانوي</h2>
+      <button class="btn" onclick="showYears('secondaryYears')">عرض السنوات</button>
+      <button class="btn back-btn" onclick="goBack()">رجوع</button>
+    </div>
+    <div id="secondaryYears" class="section hidden">
+      <h2>سنوات الثانوي</h2>
+      <button class="btn" onclick="showTeachers('s1')">السنة الأولى</button>
+      <button class="btn" onclick="showTeachers('s2')">السنة الثانية</button>
+      <button class="btn" onclick="showTeachers('s3')">السنة الثالثة</button>
+      <button class="btn back-btn" onclick="goBack()">رجوع</button>
+    </div>
+
+    <!-- الأساتذة -->
+    <div id="teachers" class="section hidden">
+      <h2>قائمة الأساتذة</h2>
+      <div id="teachersList"></div>
+      <button class="btn back-btn" onclick="goBack()">رجوع</button>
+    </div>
+
   </div>
 
   <script>
-    const yearsData = {
-      primary: ["السنة الأولى ابتدائي","السنة الثانية ابتدائي","السنة الثالثة ابتدائي","السنة الرابعة ابتدائي","السنة الخامسة ابتدائي"],
-      middle: ["السنة الأولى متوسط","السنة الثانية متوسط","السنة الثالثة متوسط","السنة الرابعة متوسط"],
-      secondary: ["السنة الأولى ثانوي","السنة الثانية ثانوي","السنة الثالثة ثانوي"]
-    };
+    let historyStack = [];
 
-    const subjectsData = {
-      "السنة الأولى ابتدائي": [
-        { subject: "الرياضيات", teacher: "أ. أحمد", time: "الأحد 10:00" },
-        { subject: "اللغة العربية", teacher: "أ. خديجة", time: "الإثنين 09:00" }
-      ],
-      "السنة الرابعة متوسط": [
-        { subject: "العلوم الطبيعية", teacher: "أ. سامية", time: "الثلاثاء 14:00" },
-        { subject: "الفيزياء", teacher: "أ. نجيب", time: "الأربعاء 15:00" }
-      ]
-    };
-
-    function showYears(level) {
-      document.getElementById("levels").classList.add("hidden");
-      document.getElementById("subjects").classList.add("hidden");
-      const yearsDiv = document.getElementById("years");
-      yearsDiv.innerHTML = "";
-      yearsData[level].forEach(year => {
-        const btn = document.createElement("button");
-        btn.className = "year-btn";
-        btn.innerText = year;
-        btn.onclick = () => showSubjects(year);
-        yearsDiv.appendChild(btn);
-      });
-      yearsDiv.classList.remove("hidden");
-      document.getElementById("back").classList.remove("hidden");
+    function showSection(id) {
+      document.querySelectorAll('.section').forEach(s => s.classList.add('hidden'));
+      document.getElementById(id).classList.remove('hidden');
+      historyStack.push(id);
     }
 
-    function showSubjects(year) {
-      const subjectsDiv = document.getElementById("subjects");
-      subjectsDiv.innerHTML = "";
-      if(subjectsData[year]) {
-        let table = "<table><tr><th>المادة</th><th>الأستاذ</th><th>التوقيت</th></tr>";
-        subjectsData[year].forEach(row => {
-          table += `<tr><td>${row.subject}</td><td>${row.teacher}</td><td>${row.time}</td></tr>`;
-        });
-        table += "</table>";
-        subjectsDiv.innerHTML = table;
-      } else {
-        subjectsDiv.innerHTML = "<p>لم يتم إدخال المواد لهذه السنة بعد.</p>";
-      }
-      subjectsDiv.classList.remove("hidden");
+    function showYears(id) {
+      document.querySelectorAll('.section').forEach(s => s.classList.add('hidden'));
+      document.getElementById(id).classList.remove('hidden');
+      historyStack.push(id);
     }
 
-    function goHome() {
-      document.getElementById("levels").classList.remove("hidden");
-      document.getElementById("years").classList.add("hidden");
-      document.getElementById("subjects").classList.add("hidden");
-      document.getElementById("back").classList.add("hidden");
+    function showTeachers(year) {
+      document.querySelectorAll('.section').forEach(s => s.classList.add('hidden'));
+      document.getElementById('teachers').classList.remove('hidden');
+      historyStack.push('teachers');
+
+      let teachers = {
+        p1: [
+          {subject: "الرياضيات", teacher: "الأستاذ أحمد", time: "الأحد 9:00 - 10:00"},
+          {subject: "العربية", teacher: "الأستاذة ليلى", time: "الإثنين 10:00 - 11:00"}
+        ],
+        m1: [
+          {subject: "العلوم", teacher: "الأستاذ يوسف", time: "الثلاثاء 8:00 - 9:00"},
+          {subject: "الفرنسية", teacher: "الأستاذة مريم", time: "الخميس 11:00 - 12:00"}
+        ],
+        s1: [
+          {subject: "الفيزياء", teacher: "الأستاذ سمير", time: "الأربعاء 14:00 - 15:00"},
+          {subject: "الرياضيات", teacher: "الأستاذة فاطمة", time: "السبت 9:00 - 10:00"}
+        ]
+      };
+
+      let list = teachers[year] || [];
+      let html = list.map(t => `
+        <div class="card">
+          <h3>${t.subject}</h3>
+          <p><strong>الأستاذ:</strong> ${t.teacher}</p>
+          <p><strong>التوقيت:</strong> ${t.time}</p>
+        </div>
+      `).join('');
+      document.getElementById('teachersList').innerHTML = html || "<p>لا يوجد أساتذة مضافين بعد.</p>";
+    }
+
+    function goBack() {
+      historyStack.pop();
+      document.querySelectorAll('.section').forEach(s => s.classList.add('hidden'));
+      let last = historyStack[historyStack.length - 1] || 'mainPage';
+      document.getElementById(last).classList.remove('hidden');
     }
   </script>
+
 </body>
 </html>
